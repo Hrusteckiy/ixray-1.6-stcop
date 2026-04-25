@@ -35,8 +35,8 @@ private:
 	static xr_string BuildShortDescription(const xr_string& Message)
 	{
 		xr_string Description = GetField(Message, "Description   : ");
-		xr_string Arguments = GetField(Message, "Arguments     : ");
 		xr_string Expression = GetField(Message, "Expression    : ");
+		xr_string Arguments = GetField(Message, "Arguments     : ");
 		xr_string Function = GetField(Message, "Function      : ");
 
 		if (!Arguments.empty())
@@ -74,7 +74,7 @@ public:
 	};
 
 	xr_vector<ErrorEntry> Entries;
-	string_path Filter;
+	string_path Filter = {};
 
 	ErrorCollector()
 	{
@@ -122,7 +122,6 @@ public:
 		ImGui::SameLine();
 		ImGui::SetNextItemWidth(-1);
 
-		ImGui::SetNextItemWidth(-1);
 		ImGui::InputTextWithHint("##value", "Search...", Filter, sizeof(Filter));
 
 		if (GUIManager->SearchIcon)
